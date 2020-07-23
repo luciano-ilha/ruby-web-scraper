@@ -28,7 +28,7 @@ scraper.invalid_rank_position(user_choice)
 if scraper.invalid_rank == false
   puts "You chose rank position: #{scraper.films_countdown_index[scraper.user_next_choice - 1]}."
   puts "\n"
-  puts "Film Title: #{scraper.films_title[scraper.user_next_choice - 1]}."
+  puts "Serie Title: #{scraper.films_title[scraper.user_next_choice - 1]}."
   puts "Starting Date: #{scraper.films_start_date[scraper.user_next_choice - 1]}."
   puts "Relevancy Meter Score: #{scraper.films_meter_score[scraper.user_next_choice - 1]}."
   puts "#{scraper.films_starring[scraper.user_next_choice - 1]}."

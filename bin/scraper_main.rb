@@ -1,10 +1,10 @@
 require 'nokogiri'
-require 'faraday'
+require 'httparty'
 require 'byebug'
 require_relative '../lib/scraper_side.rb'
 
 url = 'https://editorial.rottentomatoes.com/guide/best-netflix-shows-and-movies-to-binge-watch-now/'
-unparsed_page = Faraday.get(url).body
+unparsed_page = HTTParty.get(url)
 parsed_page = Nokogiri::HTML(unparsed_page)
 film_list = parsed_page.css('div.countdown-item')
 
@@ -35,7 +35,7 @@ puts "Starting Date: #{scraper.films_start_date[user_choice - 1]}."
 puts "Relevancy Meter Score: #{scraper.films_meter_score[user_choice - 1]}."
 puts "#{scraper.films_starring[user_choice - 1]}."
 url_user = scraper.films_synopsis_links[user_choice - 1][0].gsub('//www.', 'https://')
-unparsed_user_page = Faraday.get(url_user).body
+unparsed_user_page = HTTParty.get(url_user)
 parsed_user_page = Nokogiri::HTML(unparsed_user_page)
 film_synopsis = parsed_user_page.css('div.tv-series__series-info--synopsis').text
 puts "Film Synopsis: \"#{film_synopsis}\""

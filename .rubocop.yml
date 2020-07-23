@@ -1,3 +1,4 @@
+  
 AllCops:
   Exclude:
     - "Guardfile"
@@ -6,27 +7,18 @@ AllCops:
   DisplayCopNames: true
 
 Layout/LineLength:
-  Max: 170
+  Max: 120
 Metrics/MethodLength:
-  Max: 100
+  Max: 20
 Metrics/AbcSize:
-  Max: 100
+  Max: 50
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  ExcludedMethods: ['describe']
+  ExcludedMethods: ["describe"]
   Max: 30
 
-
 Style/Documentation:
-  Enabled: false
-Style/ClassAndModuleChildren:
-  Enabled: false
-Style/EachForSimpleLoop:
-  Enabled: false
-Style/AndOr:
-  Enabled: false
-Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
@@ -38,13 +30,7 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
-Lint/RaiseException:
+Metrics/AbcSize:
   Enabled: false
-Lint/StructNewOverride:
-  Enabled: false
-Style/HashEachMethods:
-  Enabled: false
-Style/HashTransformKeys:
-  Enabled: false
-Style/HashTransformValues:
+Layout/LineLength:
   Enabled: false

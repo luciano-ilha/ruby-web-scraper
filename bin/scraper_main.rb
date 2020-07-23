@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'byebug'
 require 'httparty'
 require 'nokogiri'
@@ -11,7 +9,7 @@ parsed_page = Nokogiri::HTML(unparsed_page)
 film_list = parsed_page.css('div.countdown-item')
 scraper = Scraper.new(film_list)
 
-scraper.get_series_info
+scraper.series_info
 
 scraper.invert_series_info
 
@@ -35,7 +33,6 @@ if scraper.invalid_rank == false
   puts "Relevancy Meter Score: #{scraper.films_meter_score[scraper.user_next_choice - 1]}."
   puts "#{scraper.films_starring[scraper.user_next_choice - 1]}."
   url_user = scraper.films_synopsis_links[scraper.user_next_choice - 1][0].gsub('//www.', 'https://')
-  url_user
 else
   puts "You chose rank position: #{scraper.films_countdown_index[user_choice - 1]}."
   puts "\n"
@@ -44,7 +41,6 @@ else
   puts "Relevancy Meter Score: #{scraper.films_meter_score[user_choice - 1]}."
   puts "#{scraper.films_starring[user_choice - 1]}."
   url_user = scraper.films_synopsis_links[user_choice - 1][0].gsub('//www.', 'https://')
-  url_user
 end
 unparsed_user_page = HTTParty.get(url_user)
 parsed_user_page = Nokogiri::HTML(unparsed_user_page)

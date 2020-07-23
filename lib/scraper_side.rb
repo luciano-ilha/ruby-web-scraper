@@ -1,7 +1,5 @@
-# frozen_string_literal: true
-
 class Scraper
-  attr_reader :films_title, :films_start_date, :films_meter_score, :films_countdown_index, :films_starring, :films_synopsis_links, :get_series_info, :invert_series_info
+  attr_reader :films_title, :films_start_date, :films_meter_score, :films_countdown_index, :films_starring, :films_synopsis_links
   attr_accessor :user_next_choice, :invalid_rank
 
   def initialize(film_list)
@@ -16,7 +14,7 @@ class Scraper
     @invalid_rank = true
   end
 
-  def get_series_info
+  def series_info
     @film_list.each do |item|
       @films_title << item.css('div.article_movie_title h2 a').text
       @films_start_date << item.css('span.start-year').text

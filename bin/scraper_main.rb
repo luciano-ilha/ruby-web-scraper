@@ -28,7 +28,7 @@ scraper.invalid_rank_position(user_choice)
 if scraper.invalid_rank == false
   puts "You chose rank position: #{scraper.films_countdown_index[scraper.user_next_choice - 1]}."
   puts "\n"
-  puts "Serie Title: #{scraper.films_title[scraper.user_next_choice - 1]}."
+  puts "Series Title: #{scraper.films_title[scraper.user_next_choice - 1]}."
   puts "Starting Date: #{scraper.films_start_date[scraper.user_next_choice - 1]}."
   puts "Relevancy Meter Score: #{scraper.films_meter_score[scraper.user_next_choice - 1]}."
   puts "#{scraper.films_starring[scraper.user_next_choice - 1]}."
@@ -36,7 +36,7 @@ if scraper.invalid_rank == false
 else
   puts "You chose rank position: #{scraper.films_countdown_index[user_choice - 1]}."
   puts "\n"
-  puts "Film Title: #{scraper.films_title[user_choice - 1]}."
+  puts "Series Title: #{scraper.films_title[user_choice - 1]}."
   puts "Starting Date: #{scraper.films_start_date[user_choice - 1]}."
   puts "Relevancy Meter Score: #{scraper.films_meter_score[user_choice - 1]}."
   puts "#{scraper.films_starring[user_choice - 1]}."
@@ -45,4 +45,4 @@ end
 unparsed_user_page = HTTParty.get(url_user)
 parsed_user_page = Nokogiri::HTML(unparsed_user_page)
 film_synopsis = parsed_user_page.css('div.tv-series__series-info--synopsis').text
-puts "Film Synopsis: \"#{film_synopsis}\""
+puts "Series Synopsis: \"#{film_synopsis}\""

@@ -1,8 +1,10 @@
 class Scraper
   attr_reader :films_title, :films_start_date, :films_meter_score, :films_countdown_index, :films_starring, :films_synopsis_links, :get_series_info, :invert_series_info
+  attr_accessor :user_choice
 
-  def initialize(film_list)
+  def initialize(film_list, user_choice)
     @film_list = film_list
+    @user_choice = user_choice
     @films_title = []
     @films_start_date = []
     @films_meter_score = []
@@ -29,5 +31,13 @@ class Scraper
     @films_countdown_index = films_countdown_index.reverse
     @films_starring = films_starring.reverse
     @films_synopsis_links = films_synopsis_links.reverse
+  end
+
+  def invalid_rank_position
+    while @user_choice < 1 || @user_choice > 161
+      puts 'Position invalid! Please chose position between 1 and 161.'
+      @user_choice = gets.chomp.to_i
+      puts "\n"
+    end
   end
 end

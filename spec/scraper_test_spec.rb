@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative '../lib/scraper_side.rb'
 
 describe Scraper do
@@ -5,7 +7,7 @@ describe Scraper do
 
   describe '#invalid_rank_position' do
     it 'Checks if user\'s choice is a valid (between 1 and 161) rank position' do
-      expect(test_scraper.invalid_rank_position(0)).to eql nil
+      expect(test_scraper.invalid_rank_position(0)).to eql test_scraper.user_next_choice
     end
   end
 end

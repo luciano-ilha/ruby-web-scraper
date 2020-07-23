@@ -1,16 +1,19 @@
+# frozen_string_literal: true
+
 class Scraper
   attr_reader :films_title, :films_start_date, :films_meter_score, :films_countdown_index, :films_starring, :films_synopsis_links, :get_series_info, :invert_series_info
-  attr_accessor :user_choice
+  attr_accessor :user_next_choice, :invalid_rank
 
   def initialize(film_list)
     @film_list = film_list
-    @user_choice = user_choice
+    @user_next_choice = ''
     @films_title = []
     @films_start_date = []
     @films_meter_score = []
     @films_countdown_index = []
     @films_starring = []
     @films_synopsis_links = []
+    @invalid_rank = true
   end
 
   def get_series_info
@@ -34,10 +37,12 @@ class Scraper
   end
 
   def invalid_rank_position(user_choice)
-    while user_choice < 1 || user_choice > 161
-      puts 'Position invalid! Please chose position between 1 and 161.'
-      user_choice = gets.chomp.to_i
-      puts "\n"
+    @user_next_choice = user_choice
+    while @user_next_choice < 1 || @user_next_choice > 161
+      puts 'Ranking position invalid! Please chose a position between 1 and 161.'
+      @user_next_choice = gets.chomp.to_i
+      @invalid_rank = false
     end
+    @user_next_choice
   end
 end

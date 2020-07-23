@@ -7,9 +7,8 @@ url = 'https://editorial.rottentomatoes.com/guide/best-netflix-shows-and-movies-
 unparsed_page = HTTParty.get(url)
 parsed_page = Nokogiri::HTML(unparsed_page)
 film_list = parsed_page.css('div.countdown-item')
-user_choice = ""
 
-scraper = Scraper.new(film_list, user_choice)
+scraper = Scraper.new(film_list)
 
 scraper.get_series_info
 
@@ -25,7 +24,7 @@ puts 'Please choose the ranking position which you want to know more information
 scraper.user_choice = gets.chomp.to_i
 puts "\n"
 
-scraper.invalid_rank_position
+scraper.invalid_rank_position(scraper.user_choice)
 
 puts "You chose rank position: #{scraper.films_countdown_index[scraper.user_choice - 1]}."
 puts "\n"

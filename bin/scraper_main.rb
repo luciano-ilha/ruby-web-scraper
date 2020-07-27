@@ -8,6 +8,7 @@ url = 'https://editorial.rottentomatoes.com/guide/best-netflix-shows-and-movies-
 unparsed_page = HTTParty.get(url)
 parsed_page = Nokogiri::HTML(unparsed_page)
 series_list = parsed_page.css('div.countdown-item')
+byebug
 scraper = Scraper.new(series_list)
 
 scraper.series_info

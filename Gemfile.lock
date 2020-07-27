@@ -31,7 +31,6 @@ GEM
     parser (2.7.1.1)
       ast (~> 2.4.0)
     rainbow (3.0.0)
-    rake (13.0.1)
     regexp_parser (1.7.1)
     rexml (3.1.9)
     rubocop (0.88.0)
@@ -58,7 +57,6 @@ PLATFORMS
 DEPENDENCIES
   byebug
   mechanize
-  rake
   rubocop
 
 BUNDLED WITH

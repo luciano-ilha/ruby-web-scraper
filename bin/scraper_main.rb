@@ -21,17 +21,17 @@ puts 'Please choose the ranking position which you want to know more information
 user_choice = gets.chomp.to_i
 puts "\n"
 
-while user_choice < 0 || user_choice > 161
+while user_choice.negative? || user_choice > 161
   puts 'Ranking position invalid! Please chose a position between 1 and 161.'
   user_choice = gets.chomp.to_i
 end
 
-while user_choice == 0
+while user_choice.zero?
   scraper.series_title.each_with_index do |val, index|
     puts "#{index + 1}. #{val}."
     puts "\n"
   end
-  puts "Please chose a position between 1 and 161."
+  puts 'Please chose a position between 1 and 161.'
   user_choice = gets.chomp.to_i
   puts "\n"
 end

@@ -1,14 +1,10 @@
 require 'byebug'
-require 'httparty'
-require 'nokogiri'
-require 'rspec'
+require 'mechanize'
 require_relative '../lib/scraper.rb'
 
-url = 'https://editorial.rottentomatoes.com/guide/best-netflix-shows-and-movies-to-binge-watch-now/'
-unparsed_page = HTTParty.get(url)
-parsed_page = Nokogiri::HTML(unparsed_page)
+url = Mechanize.new
+parsed_page = url.get('https://editorial.rottentomatoes.com/guide/best-netflix-shows-and-movies-to-binge-watch-now/')
 series_list = parsed_page.css('div.countdown-item')
-byebug
 scraper = Scraper.new(series_list)
 
 scraper.series_info
@@ -46,8 +42,8 @@ puts "Series Title: #{scraper.series_title[user_choice - 1]}."
 puts "Starting Date: #{scraper.series_start_date[user_choice - 1]}."
 puts "Relevancy Meter Score: #{scraper.series_meter_score[user_choice - 1]}."
 puts "#{scraper.series_starring[user_choice - 1]}."
-url_user = scraper.series_synopsis_links[user_choice - 1][0].gsub('//www.', 'https://')
-unparsed_user_page = HTTParty.get(url_user)
-parsed_user_page = Nokogiri::HTML(unparsed_user_page)
+url_link = scraper.series_synopsis_links[user_choice - 1][0].gsub('//www.', 'https://')
+url_user = Mechanize.new
+parsed_user_page = url_user.get(url_link)
 series_synopsis = parsed_user_page.css('div.tv-series__series-info--synopsis').text
 puts "Series Synopsis: \"#{series_synopsis}\""

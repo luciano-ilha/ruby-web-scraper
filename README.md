@@ -24,6 +24,8 @@
 
 This project is a simple Netflix Series Scraper. Contains information about 161 Netflix series arranged in a ranking based on the relevance of each. First, it asks the user's name, then asks to enter a number from 1 to 161, depending on the user's choice, return the information of the ranking position, title of the series, year of release, relevance meter, main actors and finally the synopsis from the series.
 
+![Screenshot](images/scraper-screenshot.png)
+
 ## 🔧 Built with<a name = "built_using"></a>
 
 - [Ruby](https://www.ruby-lang.org/);

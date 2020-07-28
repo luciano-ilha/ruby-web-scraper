@@ -22,7 +22,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This project is a simple Netflix Series Scraper. Contains information about 161 Netflix series arranged in a ranking based on the relevance of each. First, it asks the user's name, then asks to enter a number from 1 to 161, depending on the user's choice, return the information of the ranking position, title of the series, year of release, relevance meter, main actors and finally the synopsis from the series.
+This project is a simple Netflix Series Scraper. Contains information about 161 Netflix series arranged in a ranking based on the relevance of each. First, it asks the user's name, then asks to enter a number from 1 to 161, depending on the user's choice, return the information of the ranking position, title of the series, year of release, relevance meter, main actors and finally the synopsis from the series. If zero (0) is chosen, the whole series list is shown.
 
 ![Screenshot](images/scraper-screenshot.png)
 
@@ -44,6 +44,7 @@ Clone and run this repository by running these commands on the terminal:
 
 - First type your name.
 - Choose a number between 1 and 161.
+- Choose zero (0) to se the whole series list.
 
 ## ✒️ Authors <a name = "author"></a>
 

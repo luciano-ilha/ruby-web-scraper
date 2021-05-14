@@ -28,7 +28,7 @@ This project is a simple Netflix Series Scraper. Contains information about 161 
 
 ## 🔧 Built with<a name = "built_using"></a>
 
-- [Ruby](https://www.ruby-lang.org/);
+- [Ruby](https://www.ruby-lang.org/).
 
 ### 🛠 Installing <a name = "installing"></a>
 
